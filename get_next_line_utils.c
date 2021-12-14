@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwinnink <gwinnink@student.42.fr>          +#+  +:+       +#+        */
+/*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:24 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 13:37:25 by gwinnink         ###   ########.fr       */
+/*   Updated: 2021/12/14 14:01:50 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
