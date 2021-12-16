@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:15 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 14:01:29 by gwinnink         ###   ########.fr       */
+/*   Updated: 2021/12/16 19:26:06 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ char	*get_next_line(int fd)
 	static char	*buff;
 	char		*line;
 
-	if (fd < 0 && BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buff = read_into_buff(fd, buff);
 	if (!buff)
