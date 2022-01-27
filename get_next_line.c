@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:15 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/16 19:26:06 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/01/27 17:46:59 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ char	*read_into_buff(int fd, char *buff)
 	char	*temp;
 	int		b_read;
 
+	b_read = 1;
 	temp = (char *)malloc(BUFFER_SIZE + 1);
 	if (!temp)
 		return (NULL);
-	b_read = 1;
 	while (!ft_strchr(buff, '\n') && b_read != 0)
 	{
 		b_read = read(fd, temp, BUFFER_SIZE);
@@ -43,9 +43,9 @@ char	*separate_line(char *buff)
 	char	*ret_line;
 	int		i;
 
+	i = 0;
 	if (!*buff)
 		return (NULL);
-	i = 0;
 	while (buff[i] != '\n' && buff[i])
 		i++;
 	ret_line = (char *)malloc(i + 1);
@@ -70,6 +70,7 @@ char	*separate_rest(char *buff)
 	int		j;
 
 	i = 0;
+	j = 0;
 	while (buff[i] != '\n' && buff[i])
 		i++;
 	if (!buff[i])
@@ -77,11 +78,10 @@ char	*separate_rest(char *buff)
 		free(buff);
 		return (NULL);
 	}
-	temp = (char *)malloc(ft_strlen(buff) - i + 1);
+	temp = (char *)malloc(ft_strlen(&buff[i]) + 1);
 	if (!temp)
 		return (NULL);
 	i++;
-	j = 0;
 	while (buff[i + j])
 	{
 		temp[j] = buff[i + j];

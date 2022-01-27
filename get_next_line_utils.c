@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:24 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 14:01:50 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/01/27 17:46:00 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	*ft_calloc(unsigned int count, size_t size)
 	char			*ret_ptr;
 	unsigned int	i;
 
-	ret_ptr = (void *)malloc(count * size);
-	if (ret_ptr == 0)
-		return ((void *)ret_ptr);
 	i = 0;
+	ret_ptr = (char *)malloc(count * size);
+	if (!ret_ptr)
+		return (NULL);
 	while (i < count * size)
 	{
 		ret_ptr[i] = 0;
@@ -53,8 +53,8 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1)
 		s1 = (char *)ft_calloc(1, 1);
 	ret_str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (ret_str == 0)
-		return (ret_str);
+	if (!ret_str)
+		return (NULL);
 	while (s1[i])
 	{
 		ret_str[i] = s1[i];
@@ -83,7 +83,7 @@ char	*ft_strchr(const char *str, int c)
 			return ((char *)&str[i]);
 		i++;
 	}
-	if (!(str[i]) && (char)c == 0)
+	if (str[i] == (char)c)
 		return ((char *)&str[i]);
 	return (0);
 }
