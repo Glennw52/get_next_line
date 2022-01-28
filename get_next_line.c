@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:15 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/01/27 17:46:59 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/01/28 12:53:12 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ char	*read_into_buff(int fd, char *buff)
 	while (!ft_strchr(buff, '\n') && b_read != 0)
 	{
 		b_read = read(fd, temp, BUFFER_SIZE);
-		if (b_read == -1)
-		{
-			free(temp);
-			return (NULL);
-		}
 		temp[b_read] = '\0';
 		buff = ft_strjoin(buff, temp);
 	}
@@ -97,7 +92,7 @@ char	*get_next_line(int fd)
 	static char	*buff;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (read(fd, NULL, 0) == -1 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buff = read_into_buff(fd, buff);
 	if (!buff)
