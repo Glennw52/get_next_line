@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:15 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/01/28 12:53:12 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/01 19:16:05 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*separate_line(char *buff)
 		return (NULL);
 	while (buff[i] != '\n' && buff[i])
 		i++;
-	ret_line = (char *)malloc(i + 1);
+	ret_line = (char *)ft_calloc(i + 2, 1);
 	if (!ret_line)
 		return (NULL);
 	i = 0;
@@ -53,8 +53,6 @@ char	*separate_line(char *buff)
 		i++;
 	}
 	ret_line[i] = buff[i];
-	if (buff[i])
-		ret_line[i + 1] = '\0';
 	return (ret_line);
 }
 
@@ -73,7 +71,7 @@ char	*separate_rest(char *buff)
 		free(buff);
 		return (NULL);
 	}
-	temp = (char *)malloc(ft_strlen(&buff[i]) + 1);
+	temp = (char *)ft_calloc(ft_strlen(&buff[i]), 1);
 	if (!temp)
 		return (NULL);
 	i++;
@@ -82,7 +80,6 @@ char	*separate_rest(char *buff)
 		temp[j] = buff[i + j];
 		j++;
 	}
-	temp[j] = '\0';
 	free(buff);
 	return (temp);
 }

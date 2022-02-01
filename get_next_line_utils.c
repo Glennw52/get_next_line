@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:37:24 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/01/27 17:46:00 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:53:35 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	if (!s1)
 		s1 = (char *)ft_calloc(1, 1);
-	ret_str = (char *)malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	ret_str = (char *)ft_calloc(ft_strlen(s1) + ft_strlen(s2) + 1, 1);
 	if (!ret_str)
 		return (NULL);
 	while (s1[i])
@@ -66,7 +66,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		ret_str[i + j] = s2[j];
 		j++;
 	}
-	ret_str[i + j] = 0;
 	return (ret_str);
 }
 

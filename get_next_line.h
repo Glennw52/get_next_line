@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 13:38:11 by gwinnink          #+#    #+#             */
-/*   Updated: 2021/12/14 14:01:55 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/01 18:33:55 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *str, int c);
+void	*ft_calloc(unsigned int count, size_t size);
 
 #endif
