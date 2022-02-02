@@ -6,7 +6,7 @@
 /*   By: gwinnink <gwinnink@student.codam.nl>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 13:00:26 by gwinnink          #+#    #+#             */
-/*   Updated: 2022/02/01 19:15:55 by gwinnink         ###   ########.fr       */
+/*   Updated: 2022/02/02 10:40:57 by gwinnink         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-char	*read_into_buff(int fd, char *buff)
+static char	*read_into_buff(int fd, char *buff)
 {
 	char	*temp;
 	int		b_read;
@@ -33,7 +33,7 @@ char	*read_into_buff(int fd, char *buff)
 	return (buff);
 }
 
-char	*separate_line(char *buff)
+static char	*separate_line(char *buff)
 {
 	char	*ret_line;
 	int		i;
@@ -56,7 +56,7 @@ char	*separate_line(char *buff)
 	return (ret_line);
 }
 
-char	*separate_rest(char *buff)
+static char	*separate_rest(char *buff)
 {
 	char	*temp;
 	int		i;
